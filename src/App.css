@@ -38,11 +38,23 @@
   padding: 15px 30px;
 
 }
+.currency-container h3 span{
+  margin: 0px 5px;
+  font-size: 25px;
+}
+.currency-container span{
+  font-size: 40px;
+  margin: 0px 10px;
+}
 
 input{
   padding: 5px 15px;
   margin: 10px 0px;
   outline-color: #6495ed9c;
+}
+select{
+  margin-left: 20px;
+  padding: 5px 10px;
 }
 
 @keyframes App-logo-spin {

@@ -3,6 +3,7 @@ import Select from "./components/Select";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {API_URL} from "./api/config";
+import CurrencyRateDescription from "./components/CurrencyRateDescription";
 
 function App() {
   const [currencies, setCurrencies] = useState([]);
@@ -39,6 +40,7 @@ function App() {
   }, [currentRateFrom, currentRateTo, currencies.length]);
 
   const getCurrentRateFrom = (currCurrency) => {
+      //if found current currency  in array -> return rate of that currency
       currencies.forEach((item) => {
           const rate = item[0] === currCurrency.value && item[1];
           if(rate){
@@ -48,6 +50,7 @@ function App() {
   };
 
     const getCurrentRateTo = (currCurrency) => {
+        //if found current currency  in array -> return rate of that currency
         currencies.forEach((item) => {
             const rate = item[0] === currCurrency.value && item[1];
             if(rate){
@@ -70,6 +73,14 @@ function App() {
     <div className="App">
         <h2>Currency Converter</h2>
         <div className="currency-container">
+           <h3><CurrencyRateDescription
+              currency={defaultCurrencyFrom.current.value}
+              value={inputRef.current.value}
+          />is equivalent to</h3>
+          <CurrencyRateDescription
+              currency={defaultCurrencyTo.current.value}
+              value={result}
+          />
           <div className="first-currency">
               <input type="number"
                      disabled={false}
