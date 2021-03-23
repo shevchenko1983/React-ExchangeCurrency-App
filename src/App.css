@@ -46,6 +46,11 @@
   font-size: 40px;
   margin: 0px 10px;
 }
+.currency-flag{
+  margin-left: 15px;
+  position: relative;
+  top: 3px;
+}
 
 input{
   padding: 5px 15px;

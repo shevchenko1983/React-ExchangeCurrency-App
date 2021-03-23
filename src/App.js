@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {API_URL} from "./api/config";
 import CurrencyRateDescription from "./components/CurrencyRateDescription";
+import 'currency-flags/dist/currency-flags.css';
 
 function App() {
   const [currencies, setCurrencies] = useState([]);
@@ -74,11 +75,11 @@ function App() {
         <h2>Currency Converter</h2>
         <div className="currency-container">
            <h3><CurrencyRateDescription
-              currency={defaultCurrencyFrom.current.value}
-              value={inputRef.current.value}
+              currency={defaultCurrencyFrom.current && defaultCurrencyFrom.current.value}
+              value={inputRef.current && inputRef.current.value}
           />is equivalent to</h3>
           <CurrencyRateDescription
-              currency={defaultCurrencyTo.current.value}
+              currency={defaultCurrencyTo.current && defaultCurrencyTo.current.value}
               value={result}
           />
           <div className="first-currency">
@@ -91,7 +92,9 @@ function App() {
                       action={getCurrentRateFrom}
                       referrense={defaultCurrencyFrom}
               />
+              <div className={`currency-flag currency-flag-${defaultCurrencyFrom.current && defaultCurrencyFrom.current.value.toLowerCase()}`}/>
           </div>
+
           <div className="second-currency">
               <input type="number"
                      disabled={true}
@@ -101,6 +104,7 @@ function App() {
                       action={getCurrentRateTo}
                       referrense={defaultCurrencyTo}
               />
+              <div className={`currency-flag currency-flag-${defaultCurrencyTo.current && defaultCurrencyTo.current.value.toLowerCase()}`}/>
           </div>
         </div>
     </div>
