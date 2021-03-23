@@ -62,8 +62,10 @@ function App() {
 
   const calculateRate = (e) => {
      const amount = e.value;
-     if(amount){
+     if(amount && amount > 0){
        setResult(((amount / currentRateFrom) * currentRateTo).toFixed(2));
+     }else{
+       setResult(0);
      }
   };
 
