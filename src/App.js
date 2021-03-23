@@ -78,7 +78,7 @@ function App() {
         <div className="currency-container">
            <h3><CurrencyRateDescription
               currency={defaultCurrencyFrom.current && defaultCurrencyFrom.current.value}
-              value={inputRef.current && inputRef.current.value}
+              value={inputRef.current && inputRef.current.value !== '' ? inputRef.current.value : 0}
           />is equivalent to</h3>
           <CurrencyRateDescription
               currency={defaultCurrencyTo.current && defaultCurrencyTo.current.value}
